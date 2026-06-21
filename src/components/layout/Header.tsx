@@ -56,7 +56,7 @@ export default function Header() {
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className={cn(
                   "relative text-sm font-medium tracking-wide transition-colors hover:text-gold",
                   pathname === link.href
@@ -140,7 +140,7 @@ export default function Header() {
                   transition={{ delay: i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <Link
-                    href={link.href}
+                    to={link.href}
                     className={cn(
                       "block border-b border-white/10 py-4 text-lg font-medium transition-colors hover:text-gold",
                       pathname === link.href ? "text-gold" : "text-white"

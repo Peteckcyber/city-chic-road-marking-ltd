@@ -45,7 +45,7 @@ export default function Footer() {
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    to={link.href}
                     className="text-sm text-white/60 transition-colors hover:text-gold"
                   >
                     {link.label}
@@ -54,7 +54,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link
-                  href="/contact"
+                  to="/contact"
                   className="text-sm text-white/60 transition-colors hover:text-gold"
                 >
                   Get a Quote
@@ -71,7 +71,7 @@ export default function Footer() {
               {SERVICES.map((service) => (
                 <li key={service.id}>
                   <Link
-                    href="/services"
+                    to="/services"
                     className="text-sm text-white/60 transition-colors hover:text-gold"
                   >
                     {service.title}

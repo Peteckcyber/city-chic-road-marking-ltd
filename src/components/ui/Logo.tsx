@@ -45,7 +45,7 @@ export default function Logo({
   if (!showLink) return img;
 
   return (
-    <Link href="/" className="inline-flex shrink-0 items-center" aria-label="City Chic Road Marking Services Ltd — Home">
+    <Link to="/" className="inline-flex shrink-0 items-center" aria-label="City Chic Road Marking Services Ltd — Home">
       {img}
     </Link>
   );

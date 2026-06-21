@@ -65,7 +65,7 @@ export default function Button({
     }
     return (
       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <Link href={href} className={classes}>
+        <Link to={href} className={classes}>
           {children}
         </Link>
       </motion.div>
