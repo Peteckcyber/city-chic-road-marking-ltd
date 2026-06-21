@@ -62,7 +62,7 @@ export const homeMetadata = createMetadata({
 });
 
 export const aboutMetadata = createMetadata({
-  title: "About Us — Lagos Road Marking Experts",
+  title: "About City Chic Road Marking",
   description:
     "City Chic Road Marking Services Ltd — Lagos-based specialists in precision highway markings, car park layout, warehouse lining, and thermoplastic road marking. Trusted across Magodo, Alausa, and greater Lagos.",
   path: "/about",

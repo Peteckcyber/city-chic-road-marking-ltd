@@ -18,7 +18,7 @@ export default function AboutPage() {
   ]);
 
   const webPage = webPageSchema(
-    "About Us",
+    "About City Chic Road Marking",
     "Learn about City Chic Road Marking Services Ltd",
     `${SITE.url}/about`
   );
@@ -35,7 +35,7 @@ export default function AboutPage() {
       />
 
       <PageHero
-        title="About City Chic"
+        title="About City Chic Road Marking"
         subtitle="Precision road marking excellence built on decades of expertise, innovation, and unwavering commitment to safety."
         image={IMAGES.markingMachine}
         breadcrumbs={[
