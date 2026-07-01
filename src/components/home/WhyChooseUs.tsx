@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why Choose Us"
-          title="The City Chic Difference"
+          title="The CityChic Difference"
           subtitle="We combine premium materials, flexible scheduling, and flawless execution to deliver marking solutions that exceed expectations."
         />
 

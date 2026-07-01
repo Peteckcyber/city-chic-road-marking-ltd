@@ -1,8 +1,5 @@
 "use client";
 
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import { TESTIMONIALS, TESTIMONIAL_METRICS } from "@/lib/constants";
-
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
@@ -19,41 +16,28 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function TestimonialCard({
-  testimonial,
-}: {
-  testimonial: (typeof TESTIMONIALS)[number];
-}) {
+function TestimonialCard({ rating, text }: { rating: number; text: string }) {
   return (
-    <div className="w-[380px] shrink-0 rounded-2xl glass p-8 premium-shadow">
-      <div className="mb-4 flex items-center justify-between">
-        <StarRating rating={testimonial.rating} />
+    <div className="mx-auto w-full max-w-2xl rounded-2xl glass p-10 premium-shadow">
+      <div className="mb-6 flex items-center justify-between">
+        <StarRating rating={rating} />
         <span className="flex items-center gap-1 rounded-full bg-gold/10 px-2 py-1 text-[10px] font-bold text-gold uppercase">
           <span className="material-icons text-xs" aria-hidden="true">verified</span>
           Verified Client
         </span>
       </div>
-      <p className="mb-6 text-sm leading-relaxed text-white/80 italic">
-        &ldquo;{testimonial.text}&rdquo;
+      <p className="text-base leading-relaxed text-white/80 italic">
+        &ldquo;{text}&rdquo;
       </p>
-      <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full gold-gradient text-sm font-bold text-white">
-          {testimonial.avatar}
-        </div>
-        <div>
-          <p className="font-semibold text-white">{testimonial.name}</p>
-          <p className="text-xs text-white/50">
-            {testimonial.role}, {testimonial.company}
-          </p>
-        </div>
-      </div>
+
+      <p className="mt-8 text-right text-xs tracking-wide text-white/60">
+        signed by magodo estate management
+      </p>
     </div>
   );
 }
 
 export default function Testimonials() {
-  const doubled = [...TESTIMONIALS, ...TESTIMONIALS];
-
   return (
     <section
       className="relative overflow-hidden section-padding bg-charcoal"
@@ -65,7 +49,7 @@ export default function Testimonials() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-14 text-center">
+        <div className="mb-12 text-center">
           <span className="mb-4 inline-block text-xs font-bold tracking-[0.25em] text-gold uppercase">
             Client Testimonials
           </span>
@@ -82,29 +66,10 @@ export default function Testimonials() {
           <div className="mx-auto mt-6 h-1 w-16 gold-gradient rounded-full" />
         </div>
 
-        <div className="mb-16 grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {TESTIMONIAL_METRICS.map((metric) => (
-            <div
-              key={metric.label}
-              className="rounded-2xl border border-white/5 bg-white/5 p-6 text-center backdrop-blur-sm"
-            >
-              <AnimatedCounter
-                value={metric.value}
-                suffix={metric.suffix}
-                className="block text-3xl font-bold gold-gradient-text"
-              />
-              <p className="mt-2 text-xs font-medium text-white/50">{metric.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="overflow-hidden">
-          <div className="testimonial-track">
-            {doubled.map((testimonial, i) => (
-              <TestimonialCard key={`${testimonial.name}-${i}`} testimonial={testimonial} />
-            ))}
-          </div>
-        </div>
+        <TestimonialCard
+          rating={5}
+          text="CityChic repainted our entire estate car park — every bay, arrow, and pedestrian crossing is crisp and compliant. Residents noticed the difference within days."
+        />
       </div>
     </section>
   );

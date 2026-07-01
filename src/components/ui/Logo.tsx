@@ -29,7 +29,7 @@ export default function Logo({
   const img = (
     <Image
       src={IMAGES.logo}
-      alt="City Chic Road Marking Services Ltd"
+      alt="CityChic Road Marking Services Ltd"
       width={width}
       height={height}
       className={cn(
@@ -45,7 +45,11 @@ export default function Logo({
   if (!showLink) return img;
 
   return (
-    <Link to="/" className="inline-flex shrink-0 items-center" aria-label="City Chic Road Marking Services Ltd — Home">
+    <Link
+      to="/"
+      className="inline-flex shrink-0 items-center"
+      aria-label="CityChic Road Marking Services Ltd — Home"
+    >
       {img}
     </Link>
   );

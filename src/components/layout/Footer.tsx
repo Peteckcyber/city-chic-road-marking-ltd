@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NAV_LINKS, SITE, SERVICES, SOCIAL_LINKS, LOCATIONS } from "@/lib/constants";
+import { NAV_LINKS, SITE, SERVICES, SOCIAL_LINKS } from "@/lib/constants";
 import Logo from "@/components/ui/Logo";
 import { SocialLink } from "@/components/ui/SocialIcons";
 
@@ -104,17 +104,15 @@ export default function Footer() {
                   {SITE.email}
                 </a>
               </li>
-              {LOCATIONS.map((loc) => (
-                <li key={loc.id} className="flex items-start gap-3 text-sm text-white/60">
-                  <Icon name="location_on" />
-                  <div>
-                    <p className="font-medium text-white/80">{loc.label}</p>
-                    {loc.lines.map((line) => (
-                      <p key={line}>{line}</p>
-                    ))}
-                  </div>
-                </li>
-              ))}
+              <li className="flex items-start gap-3 text-sm text-white/60">
+                <Icon name="location_on" />
+                <div>
+                  <p className="font-medium text-white/80">Corporate Office</p>
+                  <address className="not-italic leading-relaxed">
+                    {SITE.address.full}
+                  </address>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

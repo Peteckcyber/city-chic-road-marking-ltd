@@ -15,7 +15,7 @@ export default function AboutPreview() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
                 <Image
                   src={IMAGES.markingCrew1}
-                  alt="City Chic road marking crew applying precision pedestrian crossing"
+                  alt="CityChic road marking crew applying precision pedestrian crossing"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -28,7 +28,7 @@ export default function AboutPreview() {
 
           <Reveal direction="right" delay={0.2}>
             <span className="mb-4 inline-block text-xs font-bold tracking-[0.25em] text-gold uppercase">
-              About City Chic
+              About CityChic
             </span>
             <h2
               id="about-preview"
@@ -39,7 +39,7 @@ export default function AboutPreview() {
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-muted">
               From major highways to premium commercial developments across Lagos,
-              City Chic Road Marking Services Ltd delivers high-visibility markings
+              CityChic Road Marking Services Ltd delivers high-visibility markings
               designed to maximise safety, organisation, and aesthetics.
             </p>
             <div className="mb-8 grid grid-cols-2 gap-4">

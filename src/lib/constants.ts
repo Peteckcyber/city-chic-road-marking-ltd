@@ -1,6 +1,6 @@
 export const SITE = {
-  name: "City Chic Road Marking Services Ltd",
-  shortName: "City Chic",
+  name: "CityChic Road Marking Services Ltd",
+  shortName: "CityChic",
   tagline: "Precision Lines. Premium Quality. Safer Streets.",
   phone: "07046983893",
   phoneFormatted: "07046 983893",
@@ -12,32 +12,19 @@ export const SITE = {
   description:
     "Premium road marking services in Lagos, Nigeria. Expert highway markings, car park layout design, warehouse floor marking, thermoplastic road markings, sports court marking, and industrial line painting for commercial and estate developments.",
   address: {
+    full: "32 Jaiye Oyedotun Street Magodo GRA Phase II, Lagos, Nigeria",
+    street: "32 Jaiye Oyedotun Street",
+    district: "Magodo GRA Phase II",
     country: "NG",
     region: "Lagos",
     city: "Lagos",
-  },
-} as const;
-
-export const LOCATIONS = [
-  {
-    id: "magodo",
-    label: "Magodo Office",
     lines: [
-      "32, Jaiye Oyedotun Street",
-      "Magodo, Lagos",
-      "Nigeria",
-    ],
-  },
-  {
-    id: "alausa",
-    label: "Alausa Office",
-    lines: [
-      "Phase 2, G.R.A",
-      "By Secretariat, Alausa Area",
+      "32 Jaiye Oyedotun Street",
+      "Magodo GRA Phase II",
       "Lagos, Nigeria",
     ],
   },
-] as const;
+} as const;
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -47,8 +34,11 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = [
-  { name: "Facebook", href: "https://facebook.com", platform: "facebook" as const },
-  { name: "Instagram", href: "https://instagram.com", platform: "instagram" as const },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/citychicroadmarking?igsh=dTk0MHBidHliMW55",
+    platform: "instagram" as const,
+  },
   { name: "WhatsApp", href: SITE.whatsappHref, platform: "whatsapp" as const },
 ] as const;
 
@@ -241,7 +231,7 @@ export const TESTIMONIALS = [
     role: "Estate Manager",
     company: "Magodo GRA Residents Association",
     rating: 5,
-    text: "City Chic repainted our entire estate car park — every bay, arrow, and pedestrian crossing is crisp and compliant. Residents noticed the difference within days.",
+    text: "CityChic repainted our entire estate car park — every bay, arrow, and pedestrian crossing is crisp and compliant. Residents noticed the difference within days.",
     avatar: "AO",
   },
   {
@@ -273,7 +263,7 @@ export const TESTIMONIALS = [
     role: "Property Developer",
     company: "Alausa Business District",
     rating: 5,
-    text: "From initial survey to final handover, City Chic demonstrated the professionalism we expect from a premium contractor. Highly recommended.",
+    text: "From initial survey to final handover, CityChic demonstrated the professionalism we expect from a premium contractor. Highly recommended.",
     avatar: "OA",
   },
   {
@@ -297,7 +287,7 @@ export const TESTIMONIALS = [
     role: "Estate Developer",
     company: "Lekki Phase 1 Developments",
     rating: 5,
-    text: "City Chic marked over 200 parking bays across our new estate development. Exact measurements, clean edges, and delivered on time.",
+    text: "CityChic marked over 200 parking bays across our new estate development. Exact measurements, clean edges, and delivered on time.",
     avatar: "SA",
   },
 ] as const;
@@ -315,14 +305,6 @@ export const CORE_VALUES = [
   { icon: "handshake", title: "Reliability", description: "On-time delivery with consistent, dependable results." },
   { icon: "lightbulb", title: "Innovation", description: "Latest thermoplastic equipment and marking technology." },
   { icon: "star", title: "Excellence", description: "Uncompromising quality in every detail we deliver." },
-] as const;
-
-export const TIMELINE = [
-  { year: "2012", title: "Foundation", description: "City Chic Road Marking Services Ltd established in Lagos with a commitment to precision marking solutions." },
-  { year: "2015", title: "Commercial Expansion", description: "Expanded into major commercial car park and estate marking projects across Lagos." },
-  { year: "2018", title: "Industrial Division", description: "Launched dedicated warehouse and industrial floor marking services." },
-  { year: "2021", title: "Technology Upgrade", description: "Invested in next-generation thermoplastic application and laser-guided layout equipment." },
-  { year: "2024", title: "Lagos Leadership", description: "Recognised as a leading premium road marking contractor with 850+ completed projects across Lagos." },
 ] as const;
 
 export const FAQ_ITEMS = [

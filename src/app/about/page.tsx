@@ -6,7 +6,7 @@ import GoldDivider from "@/components/ui/GoldDivider";
 import CTASection from "@/components/home/CTASection";
 import { aboutMetadata } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
-import { CORE_VALUES, TIMELINE, IMAGES, SITE } from "@/lib/constants";
+import { CORE_VALUES, IMAGES, SITE } from "@/lib/constants";
 import Image from "@/lib/NextImageShim";
 
 export const metadata: Metadata = aboutMetadata;
@@ -18,8 +18,8 @@ export default function AboutPage() {
   ]);
 
   const webPage = webPageSchema(
-    "About City Chic Road Marking",
-    "Learn about City Chic Road Marking Services Ltd",
+    "About CityChic Road Marking",
+    "Learn about CityChic Road Marking Services Ltd",
     `${SITE.url}/about`
   );
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
       />
 
       <PageHero
-        title="About City Chic Road Marking"
+        title="About CityChic Road Marking"
         subtitle="Precision road marking excellence built on decades of expertise, innovation, and unwavering commitment to safety."
         image={IMAGES.markingMachine}
         breadcrumbs={[
@@ -57,7 +57,7 @@ export default function AboutPage() {
               </h2>
               <p className="mb-4 leading-relaxed text-muted">
                 Founded with a vision to transform the road marking industry,
-                City Chic Road Marking Services Ltd has grown from a specialist
+                CityChic Road Marking Services Ltd has grown from a specialist
                 contractor into a nationally recognized premium marking services
                 provider.
               </p>
@@ -71,7 +71,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
                   src={IMAGES.zebraCrossing}
-                  alt="City Chic precision road marking work"
+                  alt="CityChic precision road marking work"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -182,41 +182,6 @@ export default function AboutPage() {
                 />
               </div>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="section-padding">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <div className="mb-14 text-center">
-            <span className="mb-4 inline-block text-xs font-bold tracking-[0.25em] text-gold uppercase">
-              Our Journey
-            </span>
-            <h2 className="text-3xl font-bold text-charcoal md:text-4xl">
-              Company Timeline
-            </h2>
-          </div>
-          <div className="relative space-y-8 before:absolute before:top-0 before:bottom-0 before:left-8 before:w-px before:bg-gold/20 md:before:left-1/2">
-            {TIMELINE.map((event, i) => (
-              <Reveal key={event.year} delay={i * 0.1}>
-                <div
-                  className={`relative flex items-center gap-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                >
-                  <div className="hidden w-1/2 md:block" />
-                  <div className="absolute left-8 z-10 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full gold-gradient md:left-1/2">
-                    <div className="h-2 w-2 rounded-full bg-white" />
-                  </div>
-                  <div className="ml-16 w-full rounded-2xl border border-charcoal/5 bg-white p-6 premium-shadow md:ml-0 md:w-1/2">
-                    <span className="text-sm font-bold text-gold">{event.year}</span>
-                    <h3 className="mt-1 mb-2 text-lg font-bold text-charcoal">
-                      {event.title}
-                    </h3>
-                    <p className="text-sm text-muted">{event.description}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

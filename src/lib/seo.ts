@@ -8,6 +8,9 @@ type PageSEO = {
   keywords?: string[];
 };
 
+const OG_IMAGE_URL =
+  "https://www.image2url.com/r2/default/images/1782874348039-6f1b09e8-3a02-4d2f-8c27-f11a23ba3f90.jpeg";
+
 export function createMetadata({
   title,
   description,
@@ -19,6 +22,13 @@ export function createMetadata({
     path === "" || path === "/"
       ? `${SITE.name} | Road Marking Services Lagos`
       : `${title} | ${SITE.name}`;
+
+  const ogImage = {
+    url: OG_IMAGE_URL,
+    width: 1200,
+    height: 630,
+    alt: `${SITE.name} — Road Marking Services Lagos`,
+  };
 
   return {
     title: fullTitle,
@@ -36,11 +46,13 @@ export function createMetadata({
       siteName: SITE.name,
       title: fullTitle,
       description,
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [OG_IMAGE_URL],
     },
     robots: {
       index: true,
@@ -62,9 +74,9 @@ export const homeMetadata = createMetadata({
 });
 
 export const aboutMetadata = createMetadata({
-  title: "About City Chic Road Marking",
+  title: "About CityChic Road Marking",
   description:
-    "City Chic Road Marking Services Ltd — Lagos-based specialists in precision highway markings, car park layout, warehouse lining, and thermoplastic road marking. Trusted across Magodo, Alausa, and greater Lagos.",
+    "CityChic Road Marking Services Ltd — Lagos-based specialists in precision highway markings, car park layout, warehouse lining, and thermoplastic road marking. Trusted across commercial, industrial, and estate projects throughout Lagos.",
   path: "/about",
 });
 
@@ -78,6 +90,6 @@ export const servicesMetadata = createMetadata({
 export const contactMetadata = createMetadata({
   title: "Contact Us — Free Site Assessment",
   description:
-    "Contact City Chic Road Marking Services Ltd in Lagos. Call 07046983893, WhatsApp us instantly, or request a free site assessment. Offices in Magodo and Alausa.",
+    "Contact CityChic Road Marking Services Ltd in Lagos. Call 07046983893, WhatsApp us instantly, or request a free site assessment at our Magodo GRA Phase II corporate office.",
   path: "/contact",
 });

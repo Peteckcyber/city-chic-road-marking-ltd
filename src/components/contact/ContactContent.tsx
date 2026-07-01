@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent } from "react";
-import { SITE, SOCIAL_LINKS, SERVICES, LOCATIONS } from "@/lib/constants";
+import { SITE, SOCIAL_LINKS, SERVICES } from "@/lib/constants";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import { SocialLink, buildWhatsAppMessage } from "@/components/ui/SocialIcons";
@@ -167,6 +167,15 @@ export function ContactContent() {
                         </a>
                       </div>
                     </li>
+                    <li className="flex items-start gap-3">
+                      <span className="material-icons text-gold" aria-hidden="true">location_on</span>
+                      <div>
+                        <p className="text-sm font-medium text-charcoal">Address</p>
+                        <address className="text-sm leading-relaxed text-muted not-italic">
+                          {SITE.address.full}
+                        </address>
+                      </div>
+                    </li>
                   </ul>
                 </div>
 
@@ -191,43 +200,36 @@ export function ContactContent() {
         </div>
       </section>
 
-      {/* Location cards */}
       <section className="bg-soft-gray py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Reveal>
-            <div className="mb-12 text-center">
+            <div className="text-center">
               <span className="mb-4 inline-block text-xs font-bold tracking-[0.25em] text-gold uppercase">
-                Our Locations
+                Corporate Address
               </span>
               <h2 className="text-3xl font-bold text-charcoal md:text-4xl">
-                Visit Us in Lagos
+                Visit Our Lagos Office
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-muted">
-                Magodo, Lagos, Nigeria — serving commercial, industrial, and estate
-                clients across the greater Lagos area.
+                Find us at our unified corporate address for enquiries, site
+                assessment coordination, and project consultations.
               </p>
             </div>
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {LOCATIONS.map((loc, i) => (
-              <Reveal key={loc.id} delay={i * 0.1}>
-                <div className="group rounded-2xl border border-charcoal/5 bg-white p-8 premium-shadow transition-all duration-500 hover:border-gold/20 hover:shadow-xl">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl gold-gradient transition-transform duration-500 group-hover:scale-105">
-                    <span className="material-icons text-2xl text-white" aria-hidden="true">
-                      location_on
-                    </span>
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-charcoal">{loc.label}</h3>
-                  <address className="space-y-1 not-italic text-sm leading-relaxed text-muted">
-                    {loc.lines.map((line) => (
-                      <p key={line}>{line}</p>
-                    ))}
-                  </address>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.1}>
+            <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-charcoal/5 bg-white p-8 text-center premium-shadow md:p-10">
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl gold-gradient">
+                <span className="material-icons text-2xl text-white" aria-hidden="true">
+                  location_on
+                </span>
+              </div>
+              <h3 className="mb-4 text-xl font-bold text-charcoal">CityChic Corporate Office</h3>
+              <address className="mx-auto max-w-lg text-base leading-relaxed text-muted not-italic">
+                {SITE.address.full}
+              </address>
+            </div>
+          </Reveal>
         </div>
       </section>
 

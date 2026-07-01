@@ -125,13 +125,10 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 32, stiffness: 280 }}
-              className="absolute top-0 right-0 flex h-full w-[85%] max-w-sm flex-col bg-charcoal p-8 pt-24"
+              data-testid="mobile-drawer"
+              className="absolute right-0 top-20 flex h-[calc(100%-5rem)] w-[85%] max-w-sm flex-col overflow-y-auto bg-charcoal p-8 pt-8"
               aria-label="Mobile navigation"
             >
-              <div className="mb-8">
-                <Logo variant="light" size="md" showLink={false} />
-              </div>
-
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.href}

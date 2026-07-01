@@ -5,7 +5,8 @@ import Footer from "@/components/layout/Footer";
 import FloatingActions from "@/components/layout/FloatingActions";
 import SocialBar from "@/components/layout/SocialBar";
 import LoadingScreen from "@/components/layout/LoadingScreen";
-import { homeMetadata } from "@/lib/seo";
+import { useLocation } from "react-router-dom";
+import { aboutMetadata, contactMetadata, homeMetadata, servicesMetadata } from "@/lib/seo";
 import {
   organizationSchema,
   localBusinessSchema,
@@ -25,24 +26,53 @@ function applyMetadata(metadata: any) {
       desc.setAttribute('content', metadata.description || '');
     }
 
+    const setMetaProperty = (propName: string, value?: string) => {
+      if (!value) return;
+      let el = document.querySelector(`meta[property="${propName}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute('property', propName);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', value);
+    };
+
+    const setMetaName = (name: string, value?: string) => {
+      if (!value) return;
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute('name', name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', value);
+    };
+
     const og = metadata?.openGraph;
     if (og) {
-      const setMeta = (propName: string, value?: string) => {
-        if (!value) return;
-        let el = document.querySelector(`meta[property="${propName}"]`);
-        if (!el) {
-          el = document.createElement('meta');
-          el.setAttribute('property', propName);
-          document.head.appendChild(el);
-        }
-        el.setAttribute('content', value);
-      };
+      setMetaProperty('og:title', og.title as unknown as string);
+      setMetaProperty('og:description', og.description as unknown as string);
+      setMetaProperty('og:url', og.url as unknown as string);
+      setMetaProperty('og:site_name', og.siteName as unknown as string);
+      if (og.images && og.images.length > 0) {
+        const img = og.images[0] as any;
+        setMetaProperty('og:image', img.url as string);
+        setMetaProperty('og:image:width', img.width ? String(img.width) : undefined);
+        setMetaProperty('og:image:height', img.height ? String(img.height) : undefined);
+        setMetaProperty('og:image:alt', img.alt as string);
+      }
+    }
 
-      setMeta('og:title', og.title as unknown as string);
-      setMeta('og:description', og.description as unknown as string);
-      setMeta('og:url', og.url as unknown as string);
-      setMeta('og:site_name', og.siteName as unknown as string);
-      if (og.images && og.images.length > 0) setMeta('og:image', (og.images[0] as any).url as string);
+    const tw = metadata?.twitter;
+    if (tw) {
+      setMetaName('twitter:card', tw.card as string);
+      setMetaName('twitter:title', tw.title as string);
+      setMetaName('twitter:description', tw.description as string);
+      const img =
+        (Array.isArray(tw.images) ? tw.images[0] : tw.images) ??
+        (og?.images && og.images.length > 0 ? (og.images[0] as any).url : undefined);
+      if (typeof img === 'string') setMetaName('twitter:image', img);
+      else if (img?.url) setMetaName('twitter:image', img.url as string);
     }
 
     const canonical = metadata?.alternates?.canonical as string | undefined;
@@ -74,11 +104,22 @@ function insertSchemas(schemas: any[]) {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    applyMetadata(homeMetadata as any);
+    const routeMetadata =
+      pathname === "/about"
+        ? aboutMetadata
+        : pathname === "/services"
+          ? servicesMetadata
+          : pathname === "/contact"
+            ? contactMetadata
+            : homeMetadata;
+
+    applyMetadata(routeMetadata as any);
     const schemas = [organizationSchema(), localBusinessSchema(), servicesSchema()];
     insertSchemas(schemas);
-  }, []);
+  }, [pathname]);
 
   return (
     <>

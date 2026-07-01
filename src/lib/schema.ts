@@ -1,4 +1,4 @@
-import { SITE, SERVICES, FAQ_ITEMS, LOCATIONS } from "./constants";
+import { SITE, SERVICES, FAQ_ITEMS } from "./constants";
 
 export function organizationSchema() {
   return {
@@ -10,15 +10,15 @@ export function organizationSchema() {
     description: SITE.description,
     telephone: SITE.phone,
     email: SITE.email,
-    address: LOCATIONS.map((loc) => ({
+    address: {
       "@type": "PostalAddress",
-      streetAddress: loc.lines[0],
-      addressLocality: "Lagos",
-      addressCountry: "NG",
-    })),
+      streetAddress: SITE.address.street,
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.region,
+      addressCountry: SITE.address.country,
+    },
     sameAs: [
-      "https://facebook.com",
-      "https://instagram.com",
+      "https://www.instagram.com/citychicroadmarking?igsh=dTk0MHBidHliMW55",
     ],
   };
 }
@@ -37,10 +37,10 @@ export function localBusinessSchema() {
     priceRange: "₦₦",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "32, Jaiye Oyedotun Street, Magodo",
-      addressLocality: "Lagos",
-      addressRegion: "Lagos",
-      addressCountry: "NG",
+      streetAddress: `${SITE.address.street}, ${SITE.address.district}`,
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.region,
+      addressCountry: SITE.address.country,
     },
     geo: {
       "@type": "GeoCoordinates",

@@ -75,7 +75,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl"
         >
-          At City Chic Road Marking Services Ltd, we don&apos;t just paint lines.
+          At CityChic Road Marking Services Ltd, we don&apos;t just paint lines.
           We create safer roads, better traffic flow, and professional spaces
           through precision marking solutions across Lagos.
         </motion.p>

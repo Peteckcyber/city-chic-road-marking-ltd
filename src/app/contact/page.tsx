@@ -17,7 +17,7 @@ export default function ContactPage() {
 
   const webPage = webPageSchema(
     "Contact Us",
-    "Contact City Chic Road Marking Services Ltd",
+    "Contact CityChic Road Marking Services Ltd",
     `${SITE.url}/contact`
   );
 

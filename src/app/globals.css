@@ -26,6 +26,21 @@ body {
   overflow-x: hidden;
 }
 
+@layer base {
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Support Next.js-like `fill` usage in our Image shim */
+  img[data-fill="true"] {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 ::selection {
   background: #c9a227;
   color: #ffffff;
@@ -180,21 +195,3 @@ body {
   border-width: 0;
 }
 
-@keyframes scroll-testimonials {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.testimonial-track {
-  display: flex;
-  gap: 1.5rem;
-  animation: scroll-testimonials 60s linear infinite;
-}
-
-.testimonial-track:hover {
-  animation-play-state: paused;
-}
